@@ -1,0 +1,179 @@
+.registration-page {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+.registration-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.registration-header h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.registration-header p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+}
+
+.registration-form {
+    background-color: var(--bg-primary);
+}
+
+.form-step {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-step h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.step-description {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.google-profile {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.google-profile img {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+}
+
+.google-profile p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.form-group label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.select-input {
+    width: 100%;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    font-family: var(--font-family);
+}
+
+.select-input:focus {
+    outline: none;
+    border-color: var(--primary-teal);
+    box-shadow: 0 0 0 3px rgba(11, 184, 168, 0.1);
+}
+
+.button-group {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.button-group button {
+    flex: 1;
+}
+
+/* Error states for selects */
+.select-error {
+    border-color: var(--error);
+}
+
+.select-error:focus {
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.error-label {
+    color: var(--error);
+    font-weight: 400;
+    font-size: var(--font-size-xs);
+    margin-left: var(--spacing-sm);
+}
+
+/* Disabled select */
+.select-input:disabled {
+    background-color: var(--bg-secondary);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* General error message */
+.general-error {
+    background-color: rgba(231, 76, 60, 0.1);
+    border: 1px solid var(--error);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    color: var(--error);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+.login-link-error {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(11, 184, 168, 0.1);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.login-link-error span {
+    color: var(--primary-teal);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.login-link-error span:hover {
+    color: var(--primary-blue);
+}

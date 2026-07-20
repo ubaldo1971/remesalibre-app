@@ -1,0 +1,214 @@
+.receive-money-dialog {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.receive-description {
+    color: var(--text-secondary, #666);
+    font-size: 14px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+/* User Info Preview */
+.user-info-preview {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: var(--bg-secondary, #f8f8f8);
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.user-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0BB8A8 0%, #08967F 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-name-display {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 0 4px 0;
+    color: var(--text-primary, #1a1a1a);
+}
+
+.user-phone-display {
+    font-size: 14px;
+    color: var(--text-secondary, #666);
+    margin: 0;
+}
+
+/* Amount Section */
+.amount-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.section-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-primary, #1a1a1a);
+    margin-bottom: 4px;
+}
+
+.currency-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.currency-btn {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #e5e5e5;
+    border-radius: 10px;
+    background: white;
+    font-weight: 600;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.currency-btn.active {
+    border-color: #0BB8A8;
+    background: rgba(11, 184, 168, 0.1);
+    color: #0BB8A8;
+}
+
+.currency-btn:hover {
+    border-color: #0BB8A8;
+}
+
+.amount-preview {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0BB8A8;
+    text-align: center;
+    margin: 8px 0;
+}
+
+/* QR Display */
+.qr-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.qr-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary, #1a1a1a);
+    margin: 0;
+}
+
+.qr-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary, #666);
+    margin: -12px 0 0 0;
+    text-align: center;
+}
+
+.qr-code-container {
+    padding: 24px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Request Details */
+.request-details {
+    width: 100%;
+    background: var(--bg-secondary, #f8f8f8);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-label {
+    font-size: 14px;
+    color: var(--text-secondary, #666);
+}
+
+.detail-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary, #1a1a1a);
+    text-align: right;
+}
+
+.amount-highlight {
+    color: #0BB8A8;
+    font-size: 16px;
+}
+
+/* QR Actions */
+.qr-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .qr-code-container {
+        padding: 20px;
+    }
+
+    .qr-code-container svg {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 280px;
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+
+    .user-info-preview,
+    .request-details {
+        background: #2a2a2a;
+    }
+
+    .currency-btn {
+        background: #1e1e1e;
+        border-color: #444;
+        color: #999;
+    }
+
+    .currency-btn.active {
+        background: rgba(11, 184, 168, 0.15);
+    }
+
+    .qr-code-container {
+        background: white;
+    }
+}

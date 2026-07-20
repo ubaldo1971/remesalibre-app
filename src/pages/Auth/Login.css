@@ -1,0 +1,107 @@
+.login-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: linear-gradient(135deg, rgba(11, 184, 168, 0.05) 0%, rgba(0, 102, 204, 0.05) 100%),
+        var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xl);
+}
+
+.login-card {
+    max-width: 420px;
+    width: 100%;
+    min-height: 70vh;
+    /* Taller card as requested */
+    padding: var(--spacing-2xl) var(--spacing-xl) !important;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.login-header h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.login-header p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.error-text {
+    color: var(--error);
+    font-size: var(--font-size-sm);
+    text-align: center;
+    padding: var(--spacing-sm);
+    background-color: rgba(239, 68, 68, 0.1);
+    border-radius: var(--radius-lg);
+}
+
+.login-footer {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: var(--primary-teal);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: color var(--transition-base);
+}
+
+.link-button:hover {
+    color: var(--primary-blue);
+}
+
+.separator {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.demo-info {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: linear-gradient(135deg, rgba(11, 184, 168, 0.1), rgba(0, 102, 204, 0.1));
+    border-left: 4px solid var(--primary-teal);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    text-align: center;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .login-page {
+        padding: var(--spacing-md);
+        align-items: flex-start;
+        padding-top: 15vh;
+    }
+
+    .login-card {
+        padding: var(--spacing-xl) var(--spacing-lg) !important;
+    }
+}

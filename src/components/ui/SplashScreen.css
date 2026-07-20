@@ -1,0 +1,180 @@
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0f141a; /* bg-secondary */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.splash-background-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 242, 255, 0.15) 0%, rgba(15, 20, 26, 0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-glow 3s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+.splash-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Orbit Animation */
+.orbit-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orbit {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 242, 255, 0.3);
+}
+
+.orbit-1 {
+    width: 120px;
+    height: 120px;
+    border-top-color: #00f2ff;
+    border-right-color: transparent;
+    animation: spin 3s linear infinite;
+}
+
+.orbit-2 {
+    width: 90px;
+    height: 90px;
+    border-bottom-color: #2ecc71;
+    border-left-color: transparent;
+    animation: spin-reverse 2s linear infinite;
+}
+
+.orbit-3 {
+    width: 60px;
+    height: 60px;
+    border-top-color: #fff;
+    border-bottom-color: transparent;
+    animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+.core-logo {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #0BB8A8 0%, #00f2ff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+    animation: heartbeat 1.5s ease-in-out infinite alternate;
+}
+
+.logo-icon {
+    color: #0f141a;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transform: translateY(-1px);
+}
+
+/* Typography */
+.splash-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2rem;
+    color: #dee3eb;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fade-in-up 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.splash-subtitle {
+    font-family: 'Inter', sans-serif;
+    color: #00f2ff;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0 0 2rem 0;
+    opacity: 0;
+    animation: fade-in-up 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+/* Loading Bar */
+.splash-loader {
+    width: 200px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    animation: fade-in 0.5s ease-out forwards;
+    animation-delay: 1s;
+}
+
+.loader-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #2ecc71 0%, #00f2ff 100%);
+    animation: load-progress 2s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    animation-delay: 1.2s;
+}
+
+/* Keyframes */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 242, 255, 0.3); }
+    100% { transform: scale(1.1); box-shadow: 0 0 30px rgba(0, 242, 255, 0.8); }
+}
+
+@keyframes pulse-glow {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+@keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes load-progress {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}

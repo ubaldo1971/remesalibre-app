@@ -1,0 +1,200 @@
+.service-payments-page {
+    padding: 2rem;
+    min-height: 100vh;
+    background-color: var(--bg-secondary);
+    color: var(--on-background, #dee3eb);
+}
+
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: var(--primary-teal, #0BB8A8);
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+    color: var(--primary, #00f2ff);
+}
+
+.page-header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.category-section {
+    margin-bottom: 2.5rem;
+}
+
+.category-section h3 {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color, rgba(255,255,255,0.05));
+    padding-bottom: 0.5rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    text-align: center;
+    background: var(--surface-variant, rgba(48, 53, 60, 0.4)) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 32px rgba(0, 242, 255, 0.1);
+    border-color: rgba(0, 242, 255, 0.3);
+}
+
+.service-icon-large {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Form Styles */
+.payment-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.payment-card {
+    background: var(--surface-variant, rgba(48, 53, 60, 0.4)) !important;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem !important;
+}
+
+.selected-service-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.selected-service-header h2 {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.balance-indicator {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: right;
+}
+
+.error-text {
+    color: var(--error, #ffb4ab);
+    font-weight: bold;
+}
+
+.action-container {
+    margin-top: 2rem;
+}
+
+.pay-btn {
+    background: linear-gradient(135deg, #0bb8a8 0%, #00f2ff 100%) !important;
+    border: none !important;
+    color: #002022 !important;
+    font-weight: bold !important;
+    border-radius: 9999px !important;
+    padding: 1rem !important;
+    font-size: 1.1rem !important;
+}
+
+.pay-btn:disabled {
+    background: var(--surface-bright, #353a40) !important;
+    color: var(--text-secondary) !important;
+    opacity: 0.5;
+}
+
+/* Success State */
+.success-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-card {
+    background: var(--surface-variant, rgba(48, 53, 60, 0.4));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 242, 255, 0.2);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.success-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.success-card h2 {
+    color: var(--primary, #00f2ff);
+    margin-bottom: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.receipt-details {
+    background: rgba(0,0,0,0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: left;
+    margin: 2rem 0;
+}
+
+.receipt-details p {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: var(--on-background);
+}
+
+.receipt-details span {
+    color: var(--text-secondary);
+}

@@ -1,0 +1,15 @@
+{
+    "short_name": "RemesaLibre",
+    "name": "RemesaLibre - Pagos Instantáneos",
+    "icons": [
+        {
+            "src": "logo.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#0BB8A8",
+    "background_color": "#ffffff"
+}

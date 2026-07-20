@@ -1,0 +1,203 @@
+.two-factor-setup {
+    min-height: 100vh;
+    background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+}
+
+.setup-container {
+    max-width: 600px;
+    width: 100%;
+}
+
+.setup-card {
+    padding: var(--spacing-2xl) !important;
+}
+
+.setup-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.icon-2fa {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-lg);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-2xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.setup-header h1 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.setup-subtitle {
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+}
+
+.setup-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.setup-step {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.step-content p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.app-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.app-badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.qr-container {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    display: inline-block;
+    margin-bottom: var(--spacing-lg);
+}
+
+.secret-key {
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+}
+
+.secret-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.secret-code {
+    display: block;
+    font-family: 'Courier New', monospace;
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+    word-break: break-all;
+}
+
+.code-input input {
+    text-align: center;
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    letter-spacing: 8px;
+    font-family: 'Courier New', monospace;
+}
+
+.demo-hint {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: rgba(11, 184, 168, 0.1);
+    border-left: 4px solid var(--primary-teal);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    color: var(--text-primary);
+}
+
+.setup-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: space-between;
+}
+
+.setup-actions button {
+    flex: 1;
+}
+
+.security-benefits {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    border: 2px solid var(--border-color);
+}
+
+.security-benefits h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.security-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.security-benefits li {
+    padding: var(--spacing-sm) 0;
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+}
+
+@media (max-width: 768px) {
+    .setup-card {
+        padding: var(--spacing-xl) !important;
+    }
+
+    .setup-actions {
+        flex-direction: column;
+    }
+
+    .qr-container canvas {
+        width: 100% !important;
+        height: auto !important;
+    }
+}

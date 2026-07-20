@@ -1,0 +1,637 @@
+.dashboard {
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    background-image: none;
+    /* Clean Matte */
+    padding-bottom: 90px;
+    font-family: var(--font-family);
+}
+
+/* Header - Clean Minimalist */
+.dashboard-header {
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: transparent;
+    position: relative;
+    z-index: 10;
+}
+
+.dashboard-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.user-greeting h2 {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.user-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+.header-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.icon-button {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    transition: all var(--transition-base);
+    overflow: hidden;
+    /* Ensure image stays inside */
+}
+
+.icon-button:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--text-secondary);
+    transform: translateY(-2px);
+}
+
+.icon-button .avatar-img-small {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+/* Balance Card - The "Black Card" Look */
+.balance-card.dual-balance-card {
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-xl);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+    /* Subtle Lime Glow from bottom */
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8);
+}
+
+.balance-card.dual-balance-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--primary-teal);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Voting Section - Discrete & Compact */
+.voting-section {
+    padding: 0 var(--spacing-md) var(--spacing-lg);
+}
+
+.voting-card {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-color) !important;
+    padding: 12px 16px !important;
+    border-radius: var(--radius-lg) !important;
+    color: var(--text-primary) !important;
+    box-shadow: none !important;
+}
+
+.voting-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.voting-icon {
+    font-size: 1rem;
+    color: var(--primary-teal);
+    background: rgba(190, 242, 100, 0.1);
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.voting-header h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.voting-question {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+
+/* Compact Options Grid */
+.voting-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Side by side */
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.vote-option {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vote-option:hover {
+    border-color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.vote-option.selected {
+    border-color: var(--primary-teal);
+    background: rgba(190, 242, 100, 0.05);
+}
+
+.vote-option-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 4px;
+}
+
+.vote-option-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.vote-count {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+}
+
+.vote-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.vote-fill {
+    height: 100%;
+    background: var(--primary-teal);
+    opacity: 0.8;
+}
+
+.vote-percentage {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--primary-teal);
+    z-index: 2;
+}
+
+.voting-footer {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    text-align: center;
+    opacity: 0.6;
+}
+
+.balance-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.balance-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.balance-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.currency-flag {
+    font-size: 1rem;
+    filter: grayscale(0.5);
+}
+
+.currency-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+.balance-value-large {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.balance-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--border-color);
+    margin: 0 1.5rem;
+}
+
+/* Quick Actions - Clean Tiles */
+.quick-actions {
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.action-card {
+    background: #18181b !important;
+    /* Force Dark Zinc */
+    backdrop-filter: none !important;
+    /* Kill any glass */
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 12px 4px;
+    /* Reduced horizontal padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-height: 90px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover Effects */
+.action-card:hover {
+    transform: scale(1.2);
+    background: var(--bg-tertiary);
+    border-color: var(--primary-teal);
+    z-index: 10;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.action-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: rgba(190, 242, 100, 0.1);
+    /* Subtle Lime bg */
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--primary-teal);
+    /* Yellow/Lime Icon */
+    transition: all 0.3s ease;
+}
+
+.action-card:hover .action-icon {
+    background: var(--primary-teal);
+    color: black;
+    transform: rotate(-5deg);
+}
+
+.action-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--primary-teal);
+    /* Yellow/Lime Text */
+    text-align: center;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.action-card:hover .action-title {
+    color: #fff;
+    /* White on hover */
+}
+
+/* Transactions - Minimal List */
+.recent-transactions {
+    padding: 0 var(--spacing-md) var(--spacing-2xl);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding: 0 4px;
+}
+
+.section-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.view-all-button {
+    color: var(--primary-teal);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.transaction-item {
+    background: transparent !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    border-radius: 0 !important;
+    padding: 12px 4px !important;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all var(--transition-base);
+}
+
+.transaction-item:hover {
+    background: var(--bg-secondary) !important;
+    border-radius: var(--radius-md) !important;
+    border-bottom-color: transparent !important;
+    padding: 12px 12px !important;
+    margin: 0 -8px;
+}
+
+.transaction-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.transaction-item:hover .transaction-icon {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.transaction-details {
+    flex: 1;
+}
+
+.transaction-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.transaction-date {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.transaction-amount {
+    text-align: right;
+}
+
+.amount {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.amount.amount-mxn {
+    color: var(--success);
+}
+
+.amount.amount-usd {
+    color: var(--text-primary);
+}
+
+.currency-label-small {
+    font-size: 0.65em;
+    font-weight: 700;
+    margin-left: 4px;
+    color: var(--text-secondary);
+}
+
+/* Empty State */
+.empty-state {
+    padding: var(--spacing-2xl) 0;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.empty-emoji {
+    filter: grayscale(1);
+}
+
+/* Donation Section - Discrete Dark & Compact (Horizontal Layout) */
+.donation-section {
+    padding: 0 var(--spacing-md) var(--spacing-lg);
+}
+
+.donation-card {
+    background: var(--bg-secondary) !important;
+    /* Zinc 900 */
+    border: 1px solid var(--border-color) !important;
+    padding: 12px 16px !important;
+    /* Extremely Compact */
+    border-radius: var(--radius-lg) !important;
+    color: var(--text-primary) !important;
+    box-shadow: none !important;
+}
+
+.donation-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Spread content */
+    margin-bottom: 8px;
+    /* Tight */
+}
+
+/* Group Icon & Title */
+.donation-header>div:nth-child(2) {
+    flex: 1;
+    margin-left: 12px;
+}
+
+.donation-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background: rgba(190, 242, 100, 0.1) !important;
+    /* Subtle Lime tint */
+    color: var(--primary-teal) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.donation-header h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary) !important;
+    margin: 0;
+}
+
+.donation-cause {
+    font-size: 0.75rem;
+    color: var(--text-secondary) !important;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+/* Hide or Minimize Progress Bar visual footprint */
+.donation-progress {
+    margin-bottom: 8px !important;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.progress-current {
+    color: var(--primary-teal) !important;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.progress-percentage {
+    color: var(--text-secondary) !important;
+}
+
+.progress-bar {
+    height: 4px;
+    background-color: var(--bg-tertiary) !important;
+    border-radius: var(--radius-full);
+}
+
+.progress-fill {
+    background: var(--primary-teal) !important;
+}
+
+/* Actions - Horizontal Pills */
+.donation-actions {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    /* Allow scrolling if too many */
+    padding-bottom: 4px;
+    /* Space for scrollbar if any */
+}
+
+/* Hide Scrollbar */
+.donation-actions::-webkit-scrollbar {
+    display: none;
+}
+
+.donate-amount-btn,
+.donate-custom-btn {
+    border: 1px solid var(--border-color) !important;
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+    padding: 4px 12px !important;
+    border-radius: 99px !important;
+    /* Pill shape */
+    font-size: 0.75rem !important;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.donate-amount-btn:hover,
+.donate-custom-btn:hover {
+    border-color: var(--primary-teal) !important;
+    color: var(--primary-teal) !important;
+    background: rgba(190, 242, 100, 0.05) !important;
+}
+
+.donation-footer-legend {
+    display: none;
+}
+
+/* Hide 'Recibo fiscal' to be discrete */
+
+/* Responsive */
+@media (min-width: 768px) {
+    .dashboard {
+        max-width: 500px;
+        margin: 0 auto;
+        border-left: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+    }
+}
+
+@media (max-width: 480px) {
+    .quick-actions-grid {
+        grid-template-columns: repeat(4, 1fr);
+        /* Enforce 4 on mobile for tiles */
+    }
+}

@@ -1,2 +1,41 @@
+# Dependencies
 node_modules/
+**/node_modules/
+
+# Builds and test artifacts
+dist/
+**/dist/
+build/
+**/build/
+coverage/
+**/coverage/
+*.log
+test_output*.txt
+*_test_results.txt
+output.txt
+*_output.txt
+
+# Environment files and secrets
 .env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+confirm_otp.json
+register.json
+token_response.json
+verify.json
+
+# Runtime data containing users, PINs, CLABEs or transactions
+server/src/data/db.json
+
+# Local editor and OS files
+.DS_Store
+Thumbs.db
+*.code-workspace
+.vscode/
+.idea/
+
+# Historical copies retained only on the local workstation
+BACKUP_FUNCTIONAL_*/

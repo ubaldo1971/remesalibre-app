@@ -1,0 +1,200 @@
+.scan-qr-dialog {
+    padding: 1rem;
+}
+
+.step-description {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* QR Input */
+.qr-input-section {
+    margin-bottom: 1.5rem;
+}
+
+.qr-textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    resize: none;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: border-color 0.2s ease;
+}
+
+.qr-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.qr-hint {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Payment Preview */
+.payment-preview {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.preview-icon {
+    font-size: 2rem;
+    background: var(--primary-light);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.preview-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.detail-value {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.amount-row {
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 0.5rem;
+}
+
+.amount-highlight {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.button-group button {
+    flex: 1;
+}
+
+/* PIN Step */
+.qr-pin-step {
+    text-align: center;
+}
+
+.pin-header {
+    margin-bottom: 1.5rem;
+}
+
+.pin-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.pin-header h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.pin-header p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.pin-input input {
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+}
+
+/* Success Step */
+.qr-success-step {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.success-animation {
+    margin-bottom: 1.5rem;
+}
+
+.success-icon {
+    font-size: 4rem;
+    animation: successPop 0.5s ease-out;
+}
+
+@keyframes successPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.qr-success-step h3 {
+    font-size: 1.5rem;
+    margin: 0 0 1.5rem 0;
+    color: var(--success);
+}
+
+.success-details {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.success-details .detail-row {
+    padding: 0.5rem 0;
+}
+
+.error-text {
+    color: var(--error);
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}

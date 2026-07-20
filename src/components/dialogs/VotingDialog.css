@@ -1,0 +1,134 @@
+.voting-dialog {
+    padding: var(--spacing-md);
+}
+
+.voting-dialog-question {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.voting-dialog-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.voting-dialog-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background-color: #f0f0f0;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.voting-dialog-option:hover {
+    border-color: var(--primary-teal);
+    background-color: #e8e8e8;
+}
+
+/* Selected state - solid green with white text */
+.voting-dialog-option.selected {
+    background-color: var(--primary-teal);
+    border-color: var(--primary-teal);
+    box-shadow: 0 4px 16px rgba(11, 184, 168, 0.3);
+}
+
+.voting-dialog-option.selected .option-text,
+.voting-dialog-option.selected .option-votes,
+.voting-dialog-option.selected .option-icon {
+    color: white;
+}
+
+/* Checkmark for selected option - centered at top */
+.option-check {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    color: var(--primary-teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--primary-teal);
+}
+
+.option-icon {
+    font-size: 2.5rem;
+}
+
+.option-text {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.option-votes {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    margin-top: var(--spacing-xs);
+}
+
+.voting-dialog-reason {
+    margin-bottom: var(--spacing-lg);
+}
+
+.voting-dialog-reason label {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.voting-dialog-reason textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    resize: none;
+    transition: all var(--transition-base);
+}
+
+.voting-dialog-reason textarea:focus {
+    outline: none;
+    border-color: var(--primary-teal);
+    box-shadow: 0 0 0 2px rgba(11, 184, 168, 0.1);
+}
+
+.voting-dialog-error {
+    color: var(--error);
+    font-size: var(--font-size-sm);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.voting-dialog-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-end;
+}
+
+.voting-dialog-actions button {
+    min-width: 120px;
+}

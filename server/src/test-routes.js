@@ -1,0 +1,15 @@
+console.log('Testing routes import');
+import './routes/auth.routes.js';
+console.log('Auth routes imported');
+import './routes/user.routes.js';
+console.log('User routes imported');
+import './routes/wallet.routes.js';
+console.log('Wallet routes imported');
+import './routes/transaction.routes.js';
+console.log('Transaction routes imported');
+import './routes/cashout.routes.js';
+console.log('Cashout routes imported');
+import './routes/conversion.routes.js';
+console.log('Conversion routes imported');
+import './routes/admin.routes.js';
+console.log('Admin routes imported');

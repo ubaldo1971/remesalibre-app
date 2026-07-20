@@ -1,0 +1,108 @@
+.notification-dropdown {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    min-width: 280px;
+    max-width: 320px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.notification-dropdown-content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+}
+
+.notification-dropdown-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(11, 184, 168, 0.15), rgba(0, 102, 204, 0.15));
+    border-radius: var(--radius-md);
+}
+
+.notification-dropdown-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-dropdown-title {
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 2px 0;
+    line-height: 1.3;
+}
+
+.notification-dropdown-message {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.notification-dropdown-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.notification-dropdown-close:hover {
+    background: rgba(0, 0, 0, 0.08);
+    color: var(--text-primary);
+}
+
+.notification-dropdown-progress {
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-teal), var(--primary-blue));
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+/* Animation for entrance */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .notification-dropdown {
+        background: rgba(30, 30, 30, 0.9);
+    }
+}

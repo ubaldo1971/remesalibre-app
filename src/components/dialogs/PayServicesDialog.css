@@ -1,0 +1,93 @@
+.pay-services-dialog {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.services-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.section-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-primary, #1a1a1a);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.service-btn {
+    padding: 16px 12px;
+    border: 2px solid #e5e5e5;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.service-btn.active {
+    border-color: #f39c12;
+    background: rgba(243, 156, 18, 0.1);
+}
+
+.service-btn:hover {
+    border-color: #f39c12;
+}
+
+.service-icon {
+    font-size: 28px;
+}
+
+.service-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    text-align: center;
+}
+
+.service-btn.active .service-name {
+    color: #f39c12;
+}
+
+.payment-preview {
+    background: linear-gradient(135deg, rgba(243, 156, 18, 0.1) 0%, rgba(230, 126, 34, 0.1) 100%);
+    border: 2px solid #f39c12;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.preview-label {
+    font-size: 12px;
+    color: var(--text-secondary, #666);
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.preview-amount {
+    font-size: 32px;
+    font-weight: 700;
+    color: #f39c12;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .preview-amount {
+        font-size: 28px;
+    }
+}
