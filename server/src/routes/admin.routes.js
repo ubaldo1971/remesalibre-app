@@ -1,16 +1,18 @@
 import express from 'express';
 import { db } from '../services/db.service.js';
 import { exchangeRateService } from '../services/exchangeRate.service.js';
+import { authenticate, authorize } from '../middleware/auth.middleware.js';
 
 export const adminRouter = express.Router();
 
-// ==================== AUTH ====================
-adminRouter.post('/login', (req, res) => {
-    res.json({
-        success: true,
-        token: 'admin_token',
-        user: { username: 'admin', role: 'admin' },
-    });
+const publicReadPaths = new Set(['/config', '/donation', '/voting']);
+
+adminRouter.use((req, res, next) => {
+    if (req.method === 'GET' && publicReadPaths.has(req.path)) {
+        return next();
+    }
+
+    return authenticate(req, res, () => authorize('admin')(req, res, next));
 });
 
 // ==================== DASHBOARD STATS ====================

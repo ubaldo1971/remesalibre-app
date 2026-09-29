@@ -27,6 +27,7 @@ class JwtService {
         const payload = {
             userId: user.id,
             phone: user.phone_number || user.phoneNumber,
+            role: user.role || 'user',
             type: 'access'
         };
 
@@ -48,6 +49,7 @@ class JwtService {
         const payload = {
             userId: user.id,
             tokenId: tokenId,
+            role: user.role || 'user',
             type: 'refresh'
         };
 
@@ -145,6 +147,7 @@ class JwtService {
         const newAccessToken = jwt.sign(
             {
                 userId: decoded.userId,
+                role: decoded.role || 'user',
                 type: 'access'
             },
             ACCESS_TOKEN_SECRET,

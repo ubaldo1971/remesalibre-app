@@ -2,6 +2,7 @@ import React, { useEffect, useCallback, useRef } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from './store/authStore';
 import { useUIStore } from './store/uiStore';
+import { isAdmin } from './utils/adminAccess';
 
 
 import PassengerDemo from './pages/RaiteIntegration/PassengerDemo';
@@ -33,6 +34,9 @@ import ReceiveMoney from './pages/Transactions/ReceiveMoney';
 import CashOut from './pages/Transactions/CashOut';
 import Transactions from './pages/Transactions/Transactions';
 import TransactionDetail from './pages/Transactions/TransactionDetail';
+import AdminInterfaces from './pages/Admin/AdminInterfaces';
+import AdminPayChat from './pages/Admin/AdminPayChat';
+import PayChat from './pages/PayChat/PayChat';
 
 import './App.css';
 
@@ -40,6 +44,12 @@ import './App.css';
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuthStore();
   return isAuthenticated ? children : <Navigate to="/welcome" replace />;
+};
+
+const AdminRoute = ({ children }) => {
+  const { isAuthenticated, user } = useAuthStore();
+  if (!isAuthenticated) return <Navigate to="/welcome" replace />;
+  return isAdmin(user) ? children : <Navigate to="/dashboard" replace />;
 };
 
 // Public Route Component (redirect if authenticated)
@@ -305,6 +315,32 @@ function App() {
                 <Profile />
               </MainLayout>
             </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/paychat"
+          element={
+            <ProtectedRoute>
+              <MainLayout>
+                <PayChat />
+              </MainLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/paychat"
+          element={
+            <AdminRoute>
+              <AdminPayChat />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminInterfaces />
+            </AdminRoute>
           }
         />
 

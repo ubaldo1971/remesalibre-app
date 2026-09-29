@@ -1,0 +1,11 @@
+{
+  "name": "remesalibre-paychat-gateway",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/*.test.js",
+    "simulate:whatsapp": "node scripts/run-whatsapp-simulation.js"
+  }
+}

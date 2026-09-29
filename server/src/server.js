@@ -32,34 +32,42 @@ import donationRoutes from './routes/donation.routes.js';
 import votingRoutes from './routes/voting.routes.js';
 import raiteRoutes from './modules/raite/raite.routes.js';
 import escrowRoutes from './modules/escrow/escrow.routes.js';
+import { createPaymentIntentModule } from './modules/paymentIntents/paymentIntent.module.js';
+import {
+    createAdminPaymentIntentRouter,
+    createPaymentIntentRouter,
+} from './routes/v1/paymentIntents.routes.js';
 // Note: authRoutes and adminRoutes already imported above from ./routes/
 
 // Import middleware
 import { errorHandler } from './middleware/errorHandler.js';
 import { notFound } from './middleware/notFound.js';
+import { createAllowedOrigins } from './config/cors.js';
 
 // Initialize app
+const frontendOrigins = createAllowedOrigins(process.env.FRONTEND_URL || 'http://localhost:5173');
 const app = express();
+const paymentIntentModule = createPaymentIntentModule();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
     cors: {
-        origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+        origin: [...frontendOrigins],
         credentials: true,
     },
 });
 
 // Middleware
 app.use(helmet());
-const allowedOrigins = [
-    process.env.FRONTEND_URL || 'http://localhost:5173',
+const allowedOrigins = new Set([
+    ...frontendOrigins,
     'http://localhost:3000', // Admin Dashboard
     'http://127.0.0.1:3000',
     'http://localhost:3002'  // Raite Chofer App
-];
+]);
 
 app.use(cors({
     origin: function (origin, callback) {
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        if (!origin || allowedOrigins.has(origin)) {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
@@ -94,6 +102,8 @@ app.use('/api/donation', donationRoutes);
 app.use('/api/voting', votingRoutes);
 app.use('/api/raite', raiteRoutes);
 app.use('/api/escrow', escrowRoutes);
+app.use('/api/v1/payment-intents', createPaymentIntentRouter(paymentIntentModule.service));
+app.use('/api/v1/admin/payment-intents', createAdminPaymentIntentRouter(paymentIntentModule.service));
 
 // Socket.IO connection
 io.on('connection', (socket) => {

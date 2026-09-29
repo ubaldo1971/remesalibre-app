@@ -1,0 +1,223 @@
+.admin-paychat {
+    min-height: 100vh;
+    padding: clamp(1rem, 3vw, 3rem);
+    color: var(--text-primary);
+    background:
+        radial-gradient(circle at 80% 0%, rgba(190, 242, 100, 0.09), transparent 30rem),
+        var(--bg-primary);
+}
+
+.admin-paychat__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1180px;
+    margin: 0 auto 1rem;
+}
+
+.admin-paychat__header > div:first-child > span {
+    color: var(--primary-teal);
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 0.16em;
+}
+
+.admin-paychat__header h1 {
+    margin: 0.2rem 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.admin-paychat__header p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.admin-paychat__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.6rem;
+}
+
+.admin-paychat__actions button {
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+}
+
+.admin-paychat__actions button:first-child {
+    color: #17210d;
+    border-color: var(--primary-teal);
+    background: var(--primary-teal);
+}
+
+.admin-paychat__warning,
+.admin-paychat__state,
+.admin-paychat__grid {
+    max-width: 1180px;
+    margin-inline: auto;
+}
+
+.admin-paychat__warning {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(251, 191, 36, 0.28);
+    border-radius: var(--radius-lg);
+    color: #fde68a;
+    background: rgba(120, 53, 15, 0.15);
+    font-size: 0.8rem;
+}
+
+.admin-paychat__warning span { color: var(--text-secondary); }
+
+.admin-paychat__state {
+    padding: 3rem 1rem;
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-xl);
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.admin-paychat__state--error {
+    color: #fecaca;
+    border-color: rgba(239, 68, 68, 0.4);
+}
+
+.admin-paychat__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.admin-paychat-card {
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-sm);
+}
+
+.admin-paychat-card__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.admin-paychat-card__top > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-paychat-card__top > div > span,
+.admin-paychat-card__top small {
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+}
+
+.admin-paychat-card h2 {
+    margin: 0.1rem 0;
+    font-size: 1.15rem;
+}
+
+.admin-paychat-status {
+    padding: 0.35rem 0.55rem;
+    border-radius: var(--radius-full);
+    color: #e4e4e7;
+    background: var(--bg-tertiary);
+    font-size: 0.65rem;
+    font-weight: 850;
+    letter-spacing: 0.06em;
+}
+
+.admin-paychat-status--succeeded { color: #d9f99d; background: rgba(77, 124, 15, 0.35); }
+.admin-paychat-status--cancelled,
+.admin-paychat-status--expired { color: #fde68a; background: rgba(146, 64, 14, 0.3); }
+.admin-paychat-status--failed,
+.admin-paychat-status--rejected { color: #fecaca; background: rgba(153, 27, 27, 0.3); }
+
+.admin-paychat-card__amount {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.15rem 1rem;
+    margin: 1rem 0;
+    padding: 0.85rem;
+    border-radius: var(--radius-lg);
+    background: var(--bg-tertiary);
+}
+
+.admin-paychat-card__amount strong { font-size: 1.35rem; }
+.admin-paychat-card__amount span,
+.admin-paychat-card__amount small { color: var(--text-secondary); font-size: 0.75rem; }
+.admin-paychat-card__amount small { grid-column: 1 / -1; }
+
+.admin-paychat-timeline {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.admin-paychat-timeline li {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.65rem;
+    min-height: 2.8rem;
+}
+
+.admin-paychat-timeline li > span {
+    z-index: 1;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-top: 0.35rem;
+    border: 2px solid var(--primary-teal);
+    border-radius: 50%;
+    background: var(--bg-secondary);
+}
+
+.admin-paychat-timeline li:not(:last-child)::before {
+    position: absolute;
+    top: 0.85rem;
+    bottom: -0.2rem;
+    left: 0.27rem;
+    width: 1px;
+    content: '';
+    background: var(--border-color);
+}
+
+.admin-paychat-timeline div {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-paychat-timeline strong { font-size: 0.78rem; }
+.admin-paychat-timeline small { color: var(--text-secondary); font-size: 0.68rem; }
+
+.admin-paychat-card footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.6rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-tertiary);
+    font-size: 0.68rem;
+}
+
+@media (max-width: 780px) {
+    .admin-paychat__header,
+    .admin-paychat__warning {
+        align-items: stretch;
+        flex-direction: column;
+    }
+    .admin-paychat__actions { justify-content: flex-start; }
+    .admin-paychat__grid { grid-template-columns: 1fr; }
+}

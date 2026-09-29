@@ -39,7 +39,8 @@ export const authenticate = (req, res, next) => {
         // Attach user info to request
         req.user = {
             id: decoded.userId,
-            phone: decoded.phone
+            phone: decoded.phone,
+            role: decoded.role || 'user'
         };
 
         // Optionally fetch full user from database
@@ -50,6 +51,7 @@ export const authenticate = (req, res, next) => {
                 firstName: user.first_name,
                 lastName: user.last_name,
                 email: user.email,
+                role: user.role || req.user.role,
                 status: user.status
             };
         }
@@ -81,7 +83,8 @@ export const optionalAuth = (req, res, next) => {
             if (decoded) {
                 req.user = {
                     id: decoded.userId,
-                    phone: decoded.phone
+                    phone: decoded.phone,
+                    role: decoded.role || 'user'
                 };
 
                 const user = db.findUserById(decoded.userId);
@@ -91,6 +94,7 @@ export const optionalAuth = (req, res, next) => {
                         firstName: user.first_name,
                         lastName: user.last_name,
                         email: user.email,
+                        role: user.role || req.user.role,
                         status: user.status
                     };
                 }
@@ -119,9 +123,9 @@ export const authorize = (...roles) => {
             });
         }
 
-        // For now, check if user has admin role in directory
+        // Prefer the authenticated identity role, then fall back to the directory.
         const directoryUser = db.userDirectory.find(u => u.id === req.user.id);
-        const userRole = directoryUser?.role || 'user';
+        const userRole = req.user.role || directoryUser?.role || 'user';
 
         if (roles.length > 0 && !roles.includes(userRole)) {
             return res.status(403).json({

@@ -4,6 +4,8 @@ import { jwtService } from '../services/jwt.service.js';
 import { db } from '../services/db.service.js';
 import { authRateLimit } from '../middleware/auth.middleware.js';
 import { smsService } from '../services/sms.service.js';
+import { authenticateDemoAdmin } from '../services/demoAdmin.service.js';
+import { authenticateDemoChannelUser } from '../services/demoChannelUser.service.js';
 
 const router = express.Router();
 
@@ -294,8 +296,11 @@ router.post('/login', authRateLimit, async (req, res) => {
             });
         }
 
-        // Find user
-        const user = db.users.find(u => u.phone_number === phoneNumber);
+        // Demo identities are ephemeral and never persisted to db.json.
+        const demoAdmin = authenticateDemoAdmin({ phoneNumber, pin });
+        const demoChannelUser = authenticateDemoChannelUser({ phoneNumber, pin });
+        const ephemeralDemoUser = demoAdmin || demoChannelUser;
+        const user = ephemeralDemoUser || db.users.find(u => u.phone_number === phoneNumber);
 
         if (!user) {
             // Log failed attempt
@@ -322,7 +327,7 @@ router.post('/login', authRateLimit, async (req, res) => {
         }
 
         // Verify PIN (in production: use bcrypt.compare)
-        if (user.pin !== pin) {
+        if (!ephemeralDemoUser && user.pin !== pin) {
             db.createSecurityLog({
                 user_id: user.id,
                 event_type: 'login_failed',
@@ -340,14 +345,16 @@ router.post('/login', authRateLimit, async (req, res) => {
         // Generate JWT tokens
         const tokens = jwtService.generateTokenPair(user);
 
-        // Log successful login
-        db.createSecurityLog({
-            user_id: user.id,
-            event_type: 'login_success',
-            ip_address: req.ip,
-            user_agent: req.get('user-agent'),
-            metadata: {}
-        });
+        // Avoid recording ephemeral channel identities in the legacy local store.
+        if (!ephemeralDemoUser) {
+            db.createSecurityLog({
+                user_id: user.id,
+                event_type: 'login_success',
+                ip_address: req.ip,
+                user_agent: req.get('user-agent'),
+                metadata: {}
+            });
+        }
 
         console.log(`[Auth] User logged in: ${phoneNumber} (${user.id})`);
 
@@ -359,7 +366,8 @@ router.post('/login', authRateLimit, async (req, res) => {
                 phoneNumber: user.phone_number,
                 firstName: user.first_name,
                 lastName: user.last_name,
-                email: user.email
+                email: user.email,
+                role: user.role || 'user'
             },
             accessToken: tokens.accessToken,
             refreshToken: tokens.refreshToken,

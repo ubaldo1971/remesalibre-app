@@ -1,9 +1,10 @@
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../../store/authStore';
 import { useUIStore } from '../../store/uiStore';
+import { isAdmin } from '../../utils/adminAccess';
 import './BottomNav.css';
 
-const BottomNav = ({ onReceiveClick }) => {
+const BottomNav = () => {
     const { user } = useAuthStore();
     const { openReceiveDialog } = useUIStore();
     const navigate = useNavigate();
@@ -39,8 +40,10 @@ const BottomNav = ({ onReceiveClick }) => {
     const navItems = [
         { path: '/dashboard', icon: '🏠', label: 'Inicio' },
         { path: '/transactions', icon: '📊', label: 'Actividad' },
+        { path: '/paychat', icon: '💬', label: 'PayChat' },
         { path: '/receive', icon: '📲', label: 'Recibir', onClick: handleReceiveClick },
         { path: '/profile', icon: getUserAvatar(), label: 'Perfil', isProfile: true },
+        ...(isAdmin(user) ? [{ path: '/admin', icon: '🛡️', label: 'Admin' }] : []),
     ];
 
     return (

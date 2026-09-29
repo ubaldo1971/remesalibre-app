@@ -4,6 +4,12 @@
 
 PayChat todavía no tiene carpeta de aplicación, repositorio ni código implementado. Este directorio conserva únicamente contexto de producto y arquitectura.
 
+## Documento rector del MVP
+
+El alcance, recorrido demostrativo, contratos, límites de seguridad y criterios de aceptación de la primera implementación están definidos en [`MVP.md`](./MVP.md).
+
+Ese documento es la referencia canónica para comenzar el desarrollo. La primera versión será una **SIMULACIÓN**, no moverá dinero real y mantendrá a RemesaLibre como única fuente del estado financiero.
+
 ## Responsabilidades
 
 ### PayChat

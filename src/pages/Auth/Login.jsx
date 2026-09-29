@@ -13,6 +13,9 @@ import './Login.css';
 
 // Google Client ID - Replace with your actual Client ID
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+const DEMO_ADMIN_ENABLED = import.meta.env.DEV && import.meta.env.VITE_DEMO_ADMIN_ENABLED === 'true';
+const DEMO_ADMIN_PHONE = import.meta.env.VITE_DEMO_ADMIN_PHONE;
+const DEMO_ADMIN_PIN = import.meta.env.VITE_DEMO_ADMIN_PIN;
 
 const LoginContent = () => {
     const navigate = useNavigate();
@@ -129,6 +132,7 @@ const LoginContent = () => {
                 lastName: user.lastName,
                 phone: user.phoneNumber,
                 email: user.email,
+                role: user.role || 'user',
             };
 
             const tokens = {
@@ -278,10 +282,23 @@ const LoginContent = () => {
                     </button>
                 </div>
 
-                {/* Demo info */}
-                <div className="demo-info">
-                    💡 <strong>Demo:</strong> Usa 5512345678 con PIN 123456
-                </div>
+                {DEMO_ADMIN_ENABLED && (
+                    <div className="demo-info">
+                        <div>🛡️ <strong>Administrador demo local</strong></div>
+                        <div>Teléfono: {DEMO_ADMIN_PHONE} · PIN: {DEMO_ADMIN_PIN}</div>
+                        <button
+                            type="button"
+                            className="link-button"
+                            onClick={() => {
+                                setCountryPrefix('+52 1');
+                                setPhone(DEMO_ADMIN_PHONE);
+                                setPin(DEMO_ADMIN_PIN);
+                            }}
+                        >
+                            Usar credenciales demo
+                        </button>
+                    </div>
+                )}
             </Card>
         </div>
     );
